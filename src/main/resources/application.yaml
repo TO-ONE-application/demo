@@ -10,12 +10,13 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true
+  liquibase:
+    analytics-enabled: true
+    change-log: classpath:/db/changelog/database-changelog.yaml
 
 kafka:
   bootstrap-servers: localhost:9092
   topic:
 
-swagger:
-  title: Demo API
-  version: 1.0.0
-  description: API для управления задачами, пользователями и уведомлениями
+server:
+  port: 8080
