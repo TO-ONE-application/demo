@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: postgres
+    password: 12345
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -13,10 +13,19 @@ spring:
   liquibase:
     analytics-enabled: true
     change-log: classpath:/db/changelog/database-changelog.yaml
-
 kafka:
   bootstrap-servers: localhost:9092
   topic:
-
 server:
   port: 8080
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
